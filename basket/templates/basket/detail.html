@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="basket" content="width=device-width" />
+    <title>Корзина</title>
+</head>
+<body>
+{% block content %}
+    <h1>Ваша корзина</h1>
+    <table class="basket">
+        <thead>
+        <tr>
+            <th>Товар</th>
+            <th>Кол-во</th>
+            <th>Убрать</th>
+            <th>Цена одного</th>
+            <th>Цена всех</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in basket %}
+            {% with product=item.product %}
+                <tr>
+                    <td>{{ product.name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td><a href="{% url "basket:basket_remove" product.id%}">Убрать</a></td>
+                    <td class="num">${{ item.price }}</td>
+                    <td class="num">${{ item.total_price }}</td>
+                </tr>
+            {% endwith %}
+        {% endfor %}
+        <tr class="total">
+            <td>Общая цена</td>
+            <td colspan="4"></td>
+            <td class="num">${{ basket.get_total_price }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <p class="text-right">
+        <a href="{% url "shop:index" %}" class="button light">Вернуться к покупкам</a>
+    </p>
+{% endblock %}
+</body>

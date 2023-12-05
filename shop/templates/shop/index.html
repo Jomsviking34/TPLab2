@@ -7,20 +7,13 @@
 <body>
     <div>
         <h3>Список</h3>
-        <table>
-            <tr>
-                <td><p>Наименование</p></td>
-                <td><p>Цена</p></td>
-                <td></td>
-            </tr>
-            {% for p in products %}
-                <tr>
-                    <td><p>{{ p.name }}</p></td>
-                    <td><p>{{ p.price }}</p></td>
-                    <td><p><a href="/buy/{{ p.id }}">Купить</a></p></td>
-                </tr>
+            {% for product in products %}
+            <div class="item">
+                <a href="{{ product.get_absolute_url }}">{{ product.name }}</a><br>
+                <p>Цена: {{ product.price }}</p>
+            </div>
             {% endfor %}
-        </table>
     </div>
+    <p><a href="/basket">Корзина</a></p>
 </body>
 </html>
