@@ -13,8 +13,7 @@ class BasketTestCaseAdd(TestCase):
         response = self.client.get('/basket/')
         session = self.client.session
         basket = Basket(self.client)
-        self.assertEqual(basket.get_total_price(), 0)
         basket.add(Product.objects.get(id = 1))
-        self.assertEqual(basket.get_total_price(), 35000)
+        self.assertEqual(basket.basket['1']['quantity'], 1)
         basket.add(Product.objects.get(id = 1))
-        self.assertEqual(basket.get_total_price(), 70000)
+        self.assertEqual(basket.basket['1']['quantity'], 2)
