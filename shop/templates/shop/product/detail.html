@@ -2,17 +2,17 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>О сайте</title>
+    <title>Страница товара</title>
 </head>
 <body>
     {% block content %}
     <div class="product-detail">
         <h1>{{ product.name }}</h1>
-        <p class="price">${{ product.price }}</p>
+        <p class="price">₽{{ product.price }}</p>
         <form action="{% url "basket:basket_add" product.id %}" method="post">
             {{ basket_product_form }}
             {% csrf_token %}
-            <input type="submit" value="Add to basket">
+            <input type="submit" value="Добавить в корзину">
         </form>
     </div>
     {% endblock %}
