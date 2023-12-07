@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
-import django_heroku
 import dj_database_url
 from pathlib import Path
 
@@ -134,6 +133,5 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_ROOT = os.path.join(BASE_DIR, STATIC_URL)
-django_heroku.settings(locals())
 
 BASKET_SESSION_ID = 'basket'
