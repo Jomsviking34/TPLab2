@@ -28,5 +28,4 @@ jobs:
   steps:
    - name: Test
      run: |
-      PYTHONPATH=./:
-      python manage.py test .\shop\tests\
+      PYTHONPATH=./: python manage.py test .\shop\tests\
