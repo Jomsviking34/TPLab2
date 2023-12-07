@@ -28,7 +28,7 @@ jobs:
   steps:
    - name: Lint with pycodestyle
      run: |
-      pycodestyle tplab2 .\
+      pycodestyle .\
  test:
   needs: style_check
   runs-on: ubuntu-latest
