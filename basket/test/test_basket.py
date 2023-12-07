@@ -14,7 +14,7 @@ class BasketTestCase(TestCase):
         response = self.client.get('/basket/')
         session = self.client.session
         basket = Basket(self.client)
-        product1 = Product(id = 1,name='sofa 3', price=35000)
+        product1 = Product(id=1, name='sofa 3', price=35000)
         basket.add(product1)
         self.assertEqual(basket.basket['1']['quantity'], 1)
         basket.add(product1)
@@ -24,7 +24,7 @@ class BasketTestCase(TestCase):
         response = self.client.get('/basket/')
         session = self.client.session
         basket = Basket(self.client)
-        product1 = Product(id = 1,name='sofa 3', price=35000)
+        product1 = Product(id=1, name='sofa 3', price=35000)
         basket.add(product1)
         self.assertEqual(basket.basket['1']['quantity'], 1)
         basket.remove(product1)
@@ -34,7 +34,7 @@ class BasketTestCase(TestCase):
         response = self.client.get('/basket/')
         session = self.client.session
         basket = Basket(self.client)
-        product1 = Product(id = 1,name='sofa 3', price=35000)
+        product1 = Product(id=1, name='sofa 3', price=35000)
         basket.add(product1)
         self.assertEqual(basket.get_total_price(), 35000)
         basket.add(product1)
