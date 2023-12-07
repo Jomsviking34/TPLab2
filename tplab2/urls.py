@@ -18,6 +18,7 @@ from django.urls import path, include, re_path
 
 urlpatterns = [
     re_path(r'^admin/', admin.site.urls),
-    re_path(r'^basket/', include(('basket.urls','basket'), namespace='basket')),
-    re_path(r'^', include(('shop.urls','shop'), namespace='shop')),
+    re_path(r'^basket/', include(('basket.urls', 'basket'),
+            namespace='basket')),
+    re_path(r'^', include(('shop.urls', 'shop'), namespace='shop')),
 ]
