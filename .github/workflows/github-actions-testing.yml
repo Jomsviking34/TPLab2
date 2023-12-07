@@ -28,7 +28,7 @@ jobs:
   steps:
    - name: Lint with pycodestyle
      run: |
-      pycodestyle tplab2 shop basket
+      pycodestyle tplab2 .\
  test:
   needs: style_check
   runs-on: ubuntu-latest
