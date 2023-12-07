@@ -3,7 +3,7 @@ name: Testing the Python code
 on:
  push:
   branches:
-   - main
+   - master
 jobs:
  build:
  
@@ -33,6 +33,6 @@ jobs:
   needs: style_check
   runs-on: ubuntu-latest
   steps:
-   - name: Test with pytest
+   - name: Test
      run: |
       python manage.py test .\shop\tests\ .\basket\tests\
