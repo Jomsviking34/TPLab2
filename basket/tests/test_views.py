@@ -19,9 +19,13 @@ class ViewTestCase(TestCase):
         response = self.client.get('/basket/')
         self.assertEqual(response.status_code, 200)
 
-    def test_view_post(self):
+    # Запросы на добавление и удаление
+    def test_view_posts(self):
         response = self.client.get('/1/')
         self.assertEqual(response.status_code, 200)
         response = self.client.post('/basket/add/1/')
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response['Location'], '/basket/')
+        response = self.client.post('/basket/remove/1/')
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response['Location'], '/basket/')
