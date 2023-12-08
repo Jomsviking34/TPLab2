@@ -16,7 +16,7 @@ class ProductTestCase(TestCase):
 
     def test_correctness_data(self):
         self.assertTrue(Product.objects.get(name="chair").price == 15000)
-        self.assertTrue(Product.objects.get(name="sofa").price == 50)
+        self.assertTrue(Product.objects.get(name="sofa").price == 35000)
 
 
 class PurchaseTestCase(TestCase):
